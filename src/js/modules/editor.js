@@ -297,129 +297,70 @@ async function compile() {
   clearCompileErrors();
   showLoader();
 
-  // TALA uses remote rendering
-  if (layout === "tala") {
-    const talaKey = Layout.getTALAKey();
-
-    const headers = {};
-    if (layout == "tala" && talaKey) {
-      headers["x-tala-key"] = talaKey;
-    }
-    let response;
-    try {
-      let apiUrl = `https://api.d2lang.com/render/svg?script=${encoded}&layout=${layout}&theme=${Theme.getThemeID()}`;
-      if (ascii) {
-        apiUrl += `&ascii=1`;
-      }
-      if (sketch) {
-        apiUrl += `&sketch=1`;
-      }
-      response = await fetch(apiUrl, {
-        headers,
-        method: "GET",
-      });
-    } catch (e) {
-      // 4-500s do not throw
-      Alert.show(
-        `Unexpected error occurred. Please make sure you are connected to the internet.`,
-        6000
-      );
-      hideLoader();
-      unlockCompileBtn();
-      return;
-    }
-    hideLoader();
-    unlockCompileBtn();
-    if (response.status === 500) {
-      const urlEncoded = encodeURIComponent(window.location.href);
-      Alert.show(
-        `D2 encountered an API error. Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/d2lang/d2/issues/new?body=${urlEncoded}">Github</a>.`,
-        6000
-      );
-      return;
-    }
-    if (response.status === 403) {
-      Alert.show(
-        `You're doing that a bit too much. Please reach out to us at hi@d2lang.com if you're a human.`,
-        6000
-      );
-      return;
-    }
-    if (!response.ok) {
-      const urlEncoded = encodeURIComponent(window.location.href);
-      Alert.show(
-        `D2 encountered an unexpected error. Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/d2lang/d2/issues/new?body=${urlEncoded}">Github</a>.`,
-        6000
-      );
-      return;
-    }
-    svg = await response.text();
-  } else {
-    const compileRequest = {
-      fs: { index: script },
-      options: {
-        layout,
-        sketch: ascii ? false : sketch,
-        ascii,
-        forceAppendix: false,
-        target: "",
-        animateInterval: 0,
-        salt: "",
-        noXMLTag: false,
-      },
-    };
-
-    let compiled;
-    try {
-      compiled = await window.d2.compile(compileRequest);
-      if (compiled.fs && compiled.fs.index) {
-        script = compiled.fs.index;
-        setScript(script);
-      }
-    } catch (err) {
-      // Check if this is a parse error (JSON array of error objects)
-      if (err.message && err.message.startsWith("[")) {
-        try {
-          const errorData = JSON.parse(err.message);
-          if (Array.isArray(errorData) && errorData.length > 0 && errorData[0].errmsg) {
-            displayCompileErrors(errorData);
-            hideLoader();
-            unlockCompileBtn();
-            return;
-          }
-        } catch (parseErr) {
-          // fallthrough to generic error handling
-        }
-      }
-      const urlEncoded = encodeURIComponent(window.location.href);
-      hideLoader();
-      unlockCompileBtn();
-      Alert.show(
-        `D2 encountered a compile error: "${err.message}". Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/d2lang/d2/issues/new?body=${urlEncoded}">Github</a>.`,
-        6000
-      );
-      return;
-    }
-    const renderOptions = {
-      layout: layout,
+  const compileRequest = {
+    fs: { index: script },
+    options: {
+      layout,
       sketch: ascii ? false : sketch,
       ascii,
-      themeID: Theme.getThemeID(),
-      center: true,
-    };
-    try {
-      svg = await window.d2.render(compiled.diagram, renderOptions);
-    } catch (renderErr) {
-      console.error("failed to render", renderErr);
-      const urlEncoded = encodeURIComponent(window.location.href);
-      Alert.show(
-        `D2 encountered an unexpected error. Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/d2lang/d2/issues/new?body=${urlEncoded}">Github</a>.`,
-        6000
-      );
+      forceAppendix: false,
+      target: "",
+      animateInterval: 0,
+      salt: "",
+      noXMLTag: false,
+    },
+  };
+
+  let compiled;
+  try {
+    compiled = await window.d2.compile(compileRequest);
+    if (compiled.fs && compiled.fs.index) {
+      script = compiled.fs.index;
+      setScript(script);
     }
+  } catch (err) {
+    // Check if this is a parse error (JSON array of error objects)
+    if (err.message && err.message.startsWith("[")) {
+      try {
+        const errorData = JSON.parse(err.message);
+        if (Array.isArray(errorData) && errorData.length > 0 && errorData[0].errmsg) {
+          displayCompileErrors(errorData);
+          hideLoader();
+          unlockCompileBtn();
+          return;
+        }
+      } catch (parseErr) {
+        // fallthrough to generic error handling
+      }
+    }
+    const urlEncoded = encodeURIComponent(window.location.href);
     hideLoader();
     unlockCompileBtn();
+    Alert.show(
+      `D2 encountered a compile error: "${err.message}". Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/d2lang/d2/issues/new?body=${urlEncoded}">Github</a>.`,
+      6000
+    );
+    return;
   }
+  const renderOptions = {
+    layout: layout,
+    sketch: ascii ? false : sketch,
+    ascii,
+    themeID: Theme.getThemeID(),
+    center: true,
+  };
+  try {
+    svg = await window.d2.render(compiled.diagram, renderOptions);
+  } catch (renderErr) {
+    console.error("failed to render", renderErr);
+    const urlEncoded = encodeURIComponent(window.location.href);
+    Alert.show(
+      `D2 encountered an unexpected error. Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/d2lang/d2/issues/new?body=${urlEncoded}">Github</a>.`,
+      6000
+    );
+  }
+  hideLoader();
+  unlockCompileBtn();
 
   const renderEl = document.getElementById("render-svg");
   const containerWidth = renderEl.getBoundingClientRect().width;

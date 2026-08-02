@@ -269,7 +269,7 @@ async function compile() {
     if (!encoded) {
       const urlEncoded = encodeURIComponent(window.location.href);
       Alert.show(
-        `D2 encountered an encoding error. Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/terrastruct/d2/issues/new?body=${urlEncoded}">Github</a>.`,
+        `D2 encountered an encoding error. Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/d2lang/d2/issues/new?body=${urlEncoded}">Github</a>.`,
         6000
       );
       unlockCompileBtn();
@@ -279,7 +279,7 @@ async function compile() {
     console.error("D2 Compile: Encode failed", err);
     const urlEncoded = encodeURIComponent(window.location.href);
     Alert.show(
-      `D2 encountered an encoding error. Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/terrastruct/d2/issues/new?body=${urlEncoded}">Github</a>.`,
+      `D2 encountered an encoding error. Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/d2lang/d2/issues/new?body=${urlEncoded}">Github</a>.`,
       6000
     );
     unlockCompileBtn();
@@ -333,7 +333,7 @@ async function compile() {
     if (response.status === 500) {
       const urlEncoded = encodeURIComponent(window.location.href);
       Alert.show(
-        `D2 encountered an API error. Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/terrastruct/d2/issues/new?body=${urlEncoded}">Github</a>.`,
+        `D2 encountered an API error. Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/d2lang/d2/issues/new?body=${urlEncoded}">Github</a>.`,
         6000
       );
       return;
@@ -348,7 +348,7 @@ async function compile() {
     if (!response.ok) {
       const urlEncoded = encodeURIComponent(window.location.href);
       Alert.show(
-        `D2 encountered an unexpected error. Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/terrastruct/d2/issues/new?body=${urlEncoded}">Github</a>.`,
+        `D2 encountered an unexpected error. Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/d2lang/d2/issues/new?body=${urlEncoded}">Github</a>.`,
         6000
       );
       return;
@@ -395,7 +395,7 @@ async function compile() {
       hideLoader();
       unlockCompileBtn();
       Alert.show(
-        `D2 encountered a compile error: "${err.message}". Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/terrastruct/d2/issues/new?body=${urlEncoded}">Github</a>.`,
+        `D2 encountered a compile error: "${err.message}". Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/d2lang/d2/issues/new?body=${urlEncoded}">Github</a>.`,
         6000
       );
       return;
@@ -413,7 +413,7 @@ async function compile() {
       console.error("failed to render", renderErr);
       const urlEncoded = encodeURIComponent(window.location.href);
       Alert.show(
-        `D2 encountered an unexpected error. Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/terrastruct/d2/issues/new?body=${urlEncoded}">Github</a>.`,
+        `D2 encountered an unexpected error. Please help improve D2 by opening an issue on&nbsp;<a href="https://github.com/d2lang/d2/issues/new?body=${urlEncoded}">Github</a>.`,
         6000
       );
     }

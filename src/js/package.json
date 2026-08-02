@@ -2,7 +2,7 @@
   "name": "d2-playground",
   "version": "1.0.0",
   "description": "An online runner to play, learn, and create with D2, the modern diagram scripting language that turns text to diagrams.",
-  "repository": "https://github.com/terrastruct/d2-playground",
+  "repository": "https://github.com/d2lang/d2-playground",
   "author": "Terrastruct, Inc.",
   "license": "MPL 2.0",
   "dependencies": {

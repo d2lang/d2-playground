@@ -4,15 +4,15 @@
     An online runner to play, learn, and create with D2, the modern diagram scripting language that turns text to diagrams.
   </h2>
 
-[![ci](https://github.com/terrastruct/d2-playground/actions/workflows/ci.yml/badge.svg)](https://github.com/terrastruct/d2-playground/actions/workflows/ci.yml)
-[![daily](https://github.com/terrastruct/d2-playground/actions/workflows/daily.yml/badge.svg)](https://github.com/terrastruct/d2-playground/actions/workflows/daily.yml)
+[![ci](https://github.com/d2lang/d2-playground/actions/workflows/ci.yml/badge.svg)](https://github.com/d2lang/d2-playground/actions/workflows/ci.yml)
+[![daily](https://github.com/d2lang/d2-playground/actions/workflows/daily.yml/badge.svg)](https://github.com/d2lang/d2-playground/actions/workflows/daily.yml)
 [![discord](https://img.shields.io/discord/1039184639652265985?label=discord)](https://discord.gg/NF6X8K4eDq)
 [![twitter](https://img.shields.io/twitter/follow/terrastruct?style=social)](https://twitter.com/terrastruct)
-[![license](https://img.shields.io/github/license/terrastruct/d2-playground?color=9cf)](./LICENSE.txt)
+[![license](https://img.shields.io/github/license/d2lang/d2-playground?color=9cf)](./LICENSE.txt)
 
 </div>
 
-**Notice:** This is not the repository for the D2 language. That can be found [here](https://github.com/terrastruct/d2).
+**Notice:** This is not the repository for the D2 language. That can be found [here](https://github.com/d2lang/d2).
 
 # Table of Contents
 

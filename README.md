@@ -34,10 +34,8 @@ Vanilla HTML, CSS, and Javascript.
 
 ### How does it work?
 
-[d2.js](https://www.npmjs.com/package/@terrastruct/d2) serves every request for dagre and
-elk layouts all within the frontend client. To render
-[tala](https://d2lang.com/tour/tala/) layouts, a request is made to an API (since it's not
-supported by `d2.js`).
+[d2.js](https://www.npmjs.com/package/@terrastruct/d2) compiles and renders both Dagre and
+ELK layouts entirely within the browser.
 
 ### Can I run it locally?
 

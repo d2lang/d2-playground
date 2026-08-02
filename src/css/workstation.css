@@ -140,29 +140,6 @@
   color: var(--steel-800);
 }
 
-#key {
-  width: 20px;
-}
-
-#key-explanation {
-  width: 100%;
-}
-
-#key-explanation > a {
-  color: var(--blue-500);
-}
-
-#key-input {
-  width: calc(100% - 0.8rem);
-  resize: none;
-  height: 3rem;
-  margin-top: 1rem;
-  padding: 0.4rem;
-  background-color: var(--steel-050);
-  color: var(--steel-850);
-  border: 1px solid var(--blue-200);
-}
-
 #mobile-editor {
   font-family: "Source Code Pro";
   font-size: 16px;

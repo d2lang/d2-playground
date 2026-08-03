@@ -33,11 +33,6 @@
 #footer-logo > .logo-d2-label {
   color: var(--steel-900);
 }
-#footer-wordmark-logo {
-  height: 20px;
-  margin-left: 4px;
-  display: block; /* Remove whitespace below image */
-}
 #footer-playground-label {
   color: var(--steel-800);
 }
@@ -65,6 +60,10 @@
   display: flex;
   align-items: center;
   color: var(--steel-900);
+}
+.footer-bottom-content a {
+  color: inherit;
+  font-weight: 600;
 }
 .footer-vertical-divider {
   width: 4px;

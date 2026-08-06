@@ -74,15 +74,9 @@ main() {
   runjob 'aws s3 sync brotli' "aws s3 cp ./dist/build/out.js ${PLAYGROUND_S3_BUCKET}/build/out.js --content-encoding='br' --content-type='application/javascript' --metadata-directive='REPLACE' --no-progress"
   runjob 'aws s3 sync brotli css' "aws s3 cp ./dist/build/style.css ${PLAYGROUND_S3_BUCKET}/build/style.css --content-encoding='br' --content-type='text/css' --metadata-directive='REPLACE' --no-progress"
 
+  # Keep WASM assets raw in dist so the build remains safe to sync or mirror.
+  # Precompressed objects require matching Content-Encoding metadata.
   runjob 'aws s3 sync' "aws s3 sync ./dist ${PLAYGROUND_S3_BUCKET} --delete --no-progress --exclude='build/out.js' --exclude='build/style.css'"
-
-  # TODO should run the compression concurrent alongside build and deploy above
-  # Cloudfront does not support wasm compression, so we upload it compressed
-  bigheader "Monaco WASM"
-
-  # TODO only run wasm if differs from dist. slow.
-
-  brotli -c src/js/vendor/onig.wasm > dist/js/vendor/onig.wasm
 
   bigheader "Invalidating cache"
 

@@ -33,7 +33,7 @@ Vanilla HTML, CSS, and Javascript.
 
 ### How does it work?
 
-[d2.js](https://www.npmjs.com/package/@terrastruct/d2) compiles and renders both Dagre and
+[d2.js](https://www.npmjs.com/package/@d2lang/d2) compiles and renders both Dagre and
 ELK layouts entirely within the browser.
 
 ### Can I run it locally?

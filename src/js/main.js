@@ -1,6 +1,6 @@
 import Editor from "./modules/editor.js";
-import { D2 } from "@terrastruct/d2";
-import d2jsPackage from "../js/node_modules/@terrastruct/d2/package.json";
+import { D2 } from "@d2lang/d2";
+import d2jsPackage from "../js/node_modules/@d2lang/d2/package.json";
 
 import WebTheme from "./modules/web_theme.js";
 import Export from "./modules/export.js";

@@ -1,4 +1,4 @@
-module oss.terrastruct.com/d2-playground
+module github.com/d2lang/d2-playground
 
 go 1.19
 

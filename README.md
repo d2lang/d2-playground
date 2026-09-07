@@ -33,8 +33,8 @@ Vanilla HTML, CSS, and Javascript.
 
 ### How does it work?
 
-[d2.js](https://www.npmjs.com/package/@d2lang/d2) compiles and renders both Dagre and
-ELK layouts entirely within the browser.
+[d2.js](https://www.npmjs.com/package/@d2lang/d2) compiles and renders Dagre, ELK,
+and TALA layouts entirely within the browser.
 
 ### Can I run it locally?
 

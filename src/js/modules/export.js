@@ -327,6 +327,7 @@ async function renderASCII(mode) {
 
     const compiled = await window.d2.compile(compileRequest);
     const renderOptions = {
+      ...compiled.renderOptions,
       ascii: true,
       asciiMode: mode,
       center: true,

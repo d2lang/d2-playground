@@ -343,6 +343,7 @@ async function compile() {
     return;
   }
   const renderOptions = {
+    ...compiled.renderOptions,
     layout: layout,
     sketch: ascii ? false : sketch,
     ascii,

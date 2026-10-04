@@ -8,6 +8,7 @@
 [![daily](https://github.com/d2lang/d2-playground/actions/workflows/daily.yml/badge.svg)](https://github.com/d2lang/d2-playground/actions/workflows/daily.yml)
 [![discord](https://img.shields.io/discord/1039184639652265985?label=discord)](https://discord.gg/NF6X8K4eDq)
 [![license](https://img.shields.io/github/license/d2lang/d2-playground?color=9cf)](./LICENSE.txt)
+<a href="https://vercel.com/open-source-program"><img alt="Vercel OSS Program" src="https://vercel.com/oss/program-badge-2026.svg" /></a>
 
 </div>
 
@@ -22,6 +23,7 @@
   - [Can I run it locally?](#can-i-run-it-locally)
 - [Development](#development)
   - [Prerequisites](#prerequisites)
+  - [Deploying to Vercel](#deploying-to-vercel)
 - [Contributing](#contributing)
 - [Dependencies](#dependencies)
 
@@ -48,6 +50,17 @@ Run `./ci/dev.sh`.
 
 - `esbuild`:
 [https://esbuild.github.io/getting-started/#install-esbuild](https://esbuild.github.io/getting-started/#install-esbuild)
+
+### Deploying to Vercel
+
+Import this repository with the repository root as the Root Directory. The
+checked-in `vercel.json` installs the JavaScript dependencies, builds the static
+site, and serves `dist`. No environment variables are required.
+
+To build the same output locally, initialize the submodules, run
+`yarn --cwd src/js install --frozen-lockfile`, then run `./ci/vercel-build.sh`.
+The build requires Node.js and npm. JavaScript and CSS remain uncompressed in
+`dist` so Vercel can serve them with the appropriate content encoding.
 
 ## Contributing
 

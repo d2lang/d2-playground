@@ -6,3 +6,5 @@ build
 dist
 d2-playground
 .DS_Store
+.vercel
+.env*

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npx --yes --package=yarn@1.22.22 -- yarn --cwd src/js install --frozen-lockfile",
+  "buildCommand": "./ci/vercel-build.sh",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/js/script.js", "destination": "https://plausible.io/js/script.js" },
+    { "source": "/api/event", "destination": "https://plausible.io/api/event" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    }
+  ]
+}

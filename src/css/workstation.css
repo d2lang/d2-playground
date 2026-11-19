@@ -1,4 +1,5 @@
 #workstation {
+  --editor-share: 50;
   border: 1px solid var(--steel-200);
   border-radius: var(--border-radius);
   display: flex;
@@ -11,11 +12,23 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  width: calc(50% - 1px);
+  min-width: 0;
+  min-height: 0;
+  overflow-x: clip;
+}
+#editor {
+  flex: var(--editor-share) 1 0;
+}
+#render {
+  flex: calc(100 - var(--editor-share)) 1 0;
+}
+.workstation-side[hidden] {
+  display: none;
 }
 .workstation-toolbar {
   display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.4rem;
   justify-content: space-between;
   padding: 0.4rem 0.8rem;
   background: var(--steel-050);
@@ -96,12 +109,18 @@
   bottom: 0;
   right: 0;
 }
+#diagram {
+  width: 100%;
+  height: 100%;
+}
 
 #editor-errors {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
+  max-height: 100%;
+  overflow-y: auto;
   background: var(--error-panel-bg);
 }
 .editor-errors-line {
@@ -113,10 +132,33 @@
 }
 
 #workstation-divider {
-  width: 2px;
-  height: 100%;
-  border-right: 1px solid var(--steel-200);
-  border-left: 1px solid var(--steel-200);
+  flex: 0 0 12px;
+  display: grid;
+  place-items: center;
+  background: var(--steel-050);
+  cursor: col-resize;
+  touch-action: none;
+  user-select: none;
+}
+#workstation-divider::after {
+  content: "";
+  width: 4px;
+  height: 32px;
+  border-radius: 4px;
+  background: var(--steel-400);
+}
+#workstation-divider:hover::after,
+#workstation-divider:focus-visible::after {
+  background: var(--blue-500);
+}
+#workstation-divider:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: -2px;
+}
+@media (pointer: coarse) {
+  #workstation-divider {
+    flex-basis: 24px;
+  }
 }
 
 #editor-toolbar-left-label,
@@ -128,6 +170,7 @@
 #render-toolbar-right,
 #render-toolbar-left {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 12px;
 }

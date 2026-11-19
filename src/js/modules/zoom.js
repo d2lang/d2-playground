@@ -84,16 +84,13 @@ function onZoomSlider(e) {
     return;
   }
 
-  const width = parseInt(el.getAttribute("width"));
-  const height = parseInt(el.getAttribute("height"));
-
   const desiredZoom = parseFloat(e.target.value);
 
   // TODO this zooms to center, of diagram, but it'd be nice to zoom to center of viewport
   const origin = panzoomInstance.getTransform();
 
-  const cx = origin.x + (width * origin.scale) / 2;
-  const cy = origin.y + (height * origin.scale) / 2;
+  const cx = origin.x + (el.clientWidth * origin.scale) / 2;
+  const cy = origin.y + (el.clientHeight * origin.scale) / 2;
 
   panzoomInstance.zoomAbs(cx, cy, desiredZoom);
 

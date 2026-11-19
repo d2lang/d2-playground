@@ -10,6 +10,7 @@ import Zoom from "./modules/zoom.js";
 import Layout from "./modules/layout.js";
 import Modal from "./modules/modal.js";
 import Sketch from "./modules/sketch.js";
+import Splitter from "./modules/splitter.js";
 
 (async () => {
   await init();
@@ -17,6 +18,7 @@ import Sketch from "./modules/sketch.js";
 
 async function init() {
   WebTheme.init();
+  Splitter.init();
 
   await initD2();
 

@@ -364,8 +364,6 @@ async function compile() {
   unlockCompileBtn();
 
   const renderEl = document.getElementById("render-svg");
-  const containerWidth = renderEl.getBoundingClientRect().width;
-  const containerHeight = renderEl.getBoundingClientRect().height;
 
   diagramSVG = svg;
 
@@ -390,9 +388,6 @@ async function compile() {
 
     svgEl.id = "diagram";
     Zoom.attach();
-
-    svgEl.setAttribute("width", `${containerWidth}px`);
-    svgEl.setAttribute("height", `${containerHeight}px`);
   }
   unlockCompileBtn();
   Export.updateExportButton();

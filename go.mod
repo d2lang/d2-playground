@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/charmbracelet/lipgloss v1.1.0
 	github.com/charmbracelet/log v0.4.2
-	github.com/evanw/esbuild v0.16.3
+	github.com/evanw/esbuild v0.16.17
 )
 
 require (

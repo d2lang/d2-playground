@@ -5,7 +5,7 @@ cd "$(dirname "$0")/.."
 
 # Use the same esbuild version as the development server in go.mod.
 esbuild() {
-  npx --yes --package=esbuild@0.16.3 -- esbuild "$@"
+  npx --yes --package=esbuild@0.16.17 -- esbuild "$@"
 }
 
 rm -rf dist

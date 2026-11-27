@@ -63,7 +63,7 @@ static site, and serves `dist`. No environment variables are required.
 To build the same output locally, initialize the submodules, run
 `npx --yes --package=yarn@1.22.22 -- yarn --cwd src/js install --frozen-lockfile`,
 then run `./ci/vercel-build.sh`. The build requires Node.js and npm, uses pinned
-Yarn 1.22.22 and esbuild 0.16.3, and preserves the dependency versions in the Yarn
+Yarn 1.22.22 and esbuild 0.16.17, and preserves the dependency versions in the Yarn
 lockfile. JavaScript and CSS remain uncompressed in `dist` so Vercel can serve
 them with the appropriate content encoding. Unhashed static filenames revalidate
 on each request so browser caches do not retain assets from an older release.

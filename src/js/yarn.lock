@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@d2lang/d2@^0.1.34":
-  version "0.1.34"
-  resolved "https://registry.npmjs.org/@d2lang/d2/-/d2-0.1.34.tgz#5a0d76e597ce6be45929c7f2ef76178ef65fb051"
-  integrity sha512-35m2DaRUgeBy1cFbF9XEGIuaN/pMWrqkJtGj/tsq7OrU4N8degbY80Js7Mw7UeuE+fwGpxdZaGckEUVOPAj7CA==
+"@d2lang/d2@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.npmjs.org/@d2lang/d2/-/d2-0.2.0.tgz#1c1eb7391f5a3902d8433273a462abfc5324adb6"
+  integrity sha512-jYPttXCdUxYCwSGLZ7ipBxaLWftjvpfUoXnKM+k7DSDs/2DBG4SpedUE3NTKfWas0ppAqqSEXJyySlpViZ858w==
 
 jsonc-parser@^3.0.0:
   version "3.2.0"
